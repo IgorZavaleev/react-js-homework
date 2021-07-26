@@ -1,5 +1,5 @@
 import { isNumber } from "./helpers";
-import { mathOperators } from "./mathOperators";
+import { binaryOperators, unaryOperators } from "./binaryOperators";
 
 export type ParsedLineType = (number | string)[];
 
@@ -7,20 +7,12 @@ export const parser = (line: string): ParsedLineType | null => {
   const stack = line.split(" ");
 
   return stack.reduce<ParsedLineType>((result, item, key) => {
-    const prevItem = stack[key - 1];
-
-    const isValidNumberPush = !isNumber(prevItem) && isNumber(item);
-    const isValidOperatorPush =
-      isNumber(prevItem) &&
-      !isNumber(item) &&
-      mathOperators.hasOwnProperty(item);
-
-    if (isValidNumberPush) {
+    if (isNumber(item)) {
       result.push(Number(item));
-    } else if (isValidOperatorPush) {
+    } else if (unaryOperators.hasOwnProperty(item) || binaryOperators.hasOwnProperty(item) ) {
       result.push(item);
     } else {
-      throw new TypeError("Unexpected string");
+      throw new TypeError(`Unexpected item "${item}"`);
     }
     return result;
   }, []);

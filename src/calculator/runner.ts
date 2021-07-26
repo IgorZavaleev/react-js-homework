@@ -1,19 +1,25 @@
 import { parser } from "./parser";
 
-import { firstPrioritiesCalc, secondPrioritiesCalc } from "./engine";
+import { binaryOperatorsCalc, unaryOperatorsCalc } from "./engine";
+import { FIRST, SECOND, ZERO } from "./binaryOperators";
+import { isNumber } from "./helpers";
 
 export const runner = (line: string): number => {
-  const stack = parser(line);
+  const result =
+    binaryOperatorsCalc(
+      binaryOperatorsCalc(
+        binaryOperatorsCalc(
+          unaryOperatorsCalc(parser(line)),
+          ZERO
+        ),
+        FIRST
+      ),
+      SECOND
+    );
 
-  if (stack === null) {
-    throw new TypeError("Unexpected string");
+  if (result.length === 1 && isNumber(String(result[0]))) {
+    return Number(result[0]);
   }
 
-  const firstPrioritiesRes = firstPrioritiesCalc(stack);
-
-  if (firstPrioritiesRes.length === 1) {
-    return Number(firstPrioritiesRes[0]);
-  }
-
-  return secondPrioritiesCalc(firstPrioritiesRes);
+  throw new TypeError("Unexpected string");
 };

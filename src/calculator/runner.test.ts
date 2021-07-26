@@ -1,4 +1,5 @@
 import { runner } from "./runner";
+import { parser } from "./parser";
 
 describe("Runner simple cases", () => {
   it("1 * 32", () => {
@@ -35,5 +36,25 @@ describe("Runner long cases", () => {
 
   it("20 - 10 * 10 / 5 - 3", () => {
     expect(runner("20 - 10 * 10 / 5 - 3")).toEqual(-3);
+  });
+
+  it("20 - 10 * 10 / 5 ** - 3", () => {
+    expect(runner("20 - 10 * 10 / 5 ** - 3")).toEqual(13);
+  });
+
+  it("20 - 10 * 10 / 5 ^ 2 - 3", () => {
+    expect(runner("20 - 10 * 10 / 5 ^ 2 - 3")).toEqual(13);
+  });
+});
+
+describe("Invalid cases", () => {
+  it("1 + + 33 - 2", () => {
+    expect(() => runner("1 + + 33 - 2")).toThrow(
+      TypeError("Unexpected string")
+    );
+  });
+
+  it("1 ! 33 - 2", () => {
+    expect(() => runner("1 ! 33 - 2")).toThrow(TypeError("Unexpected string"));
   });
 });
