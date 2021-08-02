@@ -32,7 +32,7 @@ export const sub: BinaryOperationType = (
 export const factorial: UnaryOperationType = (argument) => {
   let result = 1;
   for (let i = 2; i <= argument; i++) {
-    result = result * i;
+    result *= i;
   }
   return result;
 };

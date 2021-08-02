@@ -1,5 +1,4 @@
 import { parser } from "./parser";
-import { runner } from "./runner";
 
 describe("Parser correct cases", () => {
   it("1 + 32", () => {
@@ -15,18 +14,29 @@ describe("Parser correct cases", () => {
   });
 
   it("1 + 32 + * / - 2 + 2", () => {
-    expect(parser("1 + 32 + * / - 2 + 2")).toEqual([1, "+", 32, "+", "*", "/", "-", 2, "+", 2]);
+    expect(parser("1 + 32 + * / - 2 + 2")).toEqual([
+      1,
+      "+",
+      32,
+      "+",
+      "*",
+      "/",
+      "-",
+      2,
+      "+",
+      2,
+    ]);
   });
 });
 
 describe("Invalid cases", () => {
   it("1 + qq + 33 - 2", () => {
     expect(() => parser("1 + qq + 33 - 2")).toThrow(
-      TypeError("Unexpected item \"qq\"")
+      TypeError('Unexpected item "qq"')
     );
   });
 
   it("1- 2", () => {
-    expect(() => parser("1- 2")).toThrow(TypeError("Unexpected item \"1-\""));
+    expect(() => parser("1- 2")).toThrow(TypeError('Unexpected item "1-"'));
   });
 });

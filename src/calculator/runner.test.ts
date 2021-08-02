@@ -1,5 +1,4 @@
 import { runner } from "./runner";
-import { parser } from "./parser";
 
 describe("Runner simple cases", () => {
   it("1 * 32", () => {

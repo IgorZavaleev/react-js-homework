@@ -2,9 +2,11 @@ import { ParsedLineType } from "./parser";
 import { isNumber } from "./helpers";
 import {
   binaryOperators,
-  mathPriorities,
-  binaryOperatorsPriorities, unaryOperators, FIRST, SECOND
-} from "./binaryOperators";
+  binaryOperatorsPriorities,
+  unaryOperators,
+  FIRST,
+  SECOND,
+} from "./mathOperators";
 
 export const unaryOperatorsCalc = (stack: ParsedLineType): ParsedLineType =>
   stack.reduce<ParsedLineType>((result, item) => {
@@ -22,13 +24,20 @@ export const unaryOperatorsCalc = (stack: ParsedLineType): ParsedLineType =>
     return result;
   }, []);
 
-export const binaryOperatorsCalc = (stack: ParsedLineType, priority: number): ParsedLineType =>
+export const binaryOperatorsCalc = (
+  stack: ParsedLineType,
+  priority: number
+): ParsedLineType =>
   stack.reduce<ParsedLineType>((result, item) => {
     const operand1 = result[result.length - 2];
     const operator = result[result.length - 1];
     const operand2 = item;
 
-    if (isNumber(String(operand1)) && isNumber(String(operand2)) && binaryOperatorsPriorities[operator] === priority) {
+    if (
+      isNumber(String(operand1)) &&
+      isNumber(String(operand2)) &&
+      binaryOperatorsPriorities[operator] === priority
+    ) {
       return [
         ...result.slice(0, -2),
         binaryOperators[operator](Number(operand1), Number(operand2)),

@@ -1,4 +1,4 @@
-import { mul, div, add, sub } from "./binaryOperators";
+import { mul, div, add, sub } from "./mathOperators";
 
 describe("mathOperators test cases", () => {
   it("mul 1 * 2 to equal 2", () => {
