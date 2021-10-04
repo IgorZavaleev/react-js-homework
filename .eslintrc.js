@@ -9,6 +9,9 @@ module.exports = {
     "import/first": "error",
     "react/prop-types": "off",
     "@typescript-eslint/no-var-requires": 0,
+    "react/react-in-jsx-scope": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
   },
   extends: [
     "react-app",
@@ -22,7 +25,7 @@ module.exports = {
   ],
   parser: "@typescript-eslint/parser",
   root: true,
-  plugins: ["react", "@typescript-eslint", "html"],
+  plugins: ["react", "@typescript-eslint", "html", "react-hooks"],
   parserOptions: {
     ecmaVersion: 11,
     ecmaFeatures: {

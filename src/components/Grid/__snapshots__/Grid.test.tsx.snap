@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid component check Grid renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-1iyoj2o"
+  >
+    <div
+      class="css-o2j9ze"
+    >
+      <div
+        class="css-ap6yp8-Cell"
+        data-testid="0,0"
+      >
+        0,0
+      </div>
+      <div
+        class="css-eudiny-Cell"
+        data-testid="1,0"
+      >
+        1,0
+      </div>
+      <div
+        class="css-ap6yp8-Cell"
+        data-testid="2,0"
+      >
+        2,0
+      </div>
+    </div>
+    <div
+      class="css-o2j9ze"
+    >
+      <div
+        class="css-eudiny-Cell"
+        data-testid="0,1"
+      >
+        0,1
+      </div>
+      <div
+        class="css-ap6yp8-Cell"
+        data-testid="1,1"
+      >
+        1,1
+      </div>
+      <div
+        class="css-ap6yp8-Cell"
+        data-testid="2,1"
+      >
+        2,1
+      </div>
+    </div>
+    <div
+      class="css-o2j9ze"
+    >
+      <div
+        class="css-ap6yp8-Cell"
+        data-testid="0,2"
+      >
+        0,2
+      </div>
+      <div
+        class="css-ap6yp8-Cell"
+        data-testid="1,2"
+      >
+        1,2
+      </div>
+      <div
+        class="css-eudiny-Cell"
+        data-testid="2,2"
+      >
+        2,2
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
