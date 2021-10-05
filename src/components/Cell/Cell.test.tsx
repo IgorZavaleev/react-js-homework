@@ -1,10 +1,10 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { Cell } from "./Cell";
-import { CellProps } from "../../types/field";
+import { CellProps, Coords } from "../../types/field";
 
 describe("Cell component check", () => {
-  const coords = [1, 1];
+  const coords: Coords = [1, 1];
 
   const props: CellProps = {
     coords: coords,
