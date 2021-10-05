@@ -4,10 +4,9 @@
 // А возвращает только initial и inWork
 // Нужно заменить FIXME на правильный тип вычисленный на основе Order
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type FIXME = any;
+type FIXME = InitialAndInWorkOrder | null;
 
-type Order =
+type InitialAndInWorkOrder =
   | {
       state: "initial";
       sum: number;
@@ -16,7 +15,9 @@ type Order =
       state: "inWork";
       sum: number;
       workerId: number;
-    }
+    };
+
+type OtherOrder =
   | {
       state: "buyingSupplies";
       sum: number;
@@ -38,6 +39,8 @@ type Order =
       produceEstimate: Date;
       fullfillmentDate: Date;
     };
+
+type Order = InitialAndInWorkOrder | OtherOrder;
 
 export const filterOnlyInitialAndInWorkOrder = (order: Order): FIXME => {
   if (order.state === "initial" || order.state === "inWork") {

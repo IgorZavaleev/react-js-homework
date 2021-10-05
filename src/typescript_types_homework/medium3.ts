@@ -1,18 +1,17 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type FIXME = any;
+type FIXME = UserOrderState[];
 
-const orderStates = [
-  "initial",
-  "inWork",
-  "buyingSupplies",
-  "producing",
-  "fullfilled",
-] as const;
+const userOrderStates = ["initial", "inWork", "fulfilled"] as const;
+const nonUserOrderStates = ["buyingSupplies", "producing"] as const;
 
-type OrderState = typeof orderStates[number];
+type UserOrderState = typeof userOrderStates[number];
+type NonUserOrderStates = typeof nonUserOrderStates[number];
+
+type OrderState = UserOrderState | NonUserOrderStates;
+
+function isUserOrderState(x: any): x is UserOrderState {
+  return x in userOrderStates;
+}
 
 // Hint: type guards
 export const getUserOrderStates = (orderStates: OrderState[]): FIXME =>
-  orderStates.filter(
-    (state) => state !== "buyingSupplies" && state !== "producing"
-  );
+  (orderStates as UserOrderState[]).filter((state) => isUserOrderState(state));
