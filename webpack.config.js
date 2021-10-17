@@ -11,6 +11,14 @@ module.exports = {
         exclude: /(node_modules)/,
         loader: "babel-loader",
       },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
+      },
     ],
   },
   resolve: { extensions: ["*", ".js", ".jsx", ".ts", ".tsx"] },
