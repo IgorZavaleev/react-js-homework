@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { Cell } from "./Cell";
-import { CellProps, Coords } from "../../types/field";
+import { CellProps, Coords } from "@/types/field";
 
 describe("Cell component check", () => {
   const coords: Coords = [1, 1];
@@ -10,6 +10,7 @@ describe("Cell component check", () => {
     coords: coords,
     state: 1,
     onClick: jest.fn(),
+    size: "small",
   };
 
   it("Cell renders correctly", () => {
@@ -20,7 +21,7 @@ describe("Cell component check", () => {
   it("onClick should be called", () => {
     render(<Cell {...props} />);
 
-    const cellComp = screen.getByTestId(`${coords}`);
+    const cellComp = screen.getByTestId(`cell_${coords[0]}_${coords[1]}_alive`);
     fireEvent.click(cellComp);
 
     expect(props.onClick).toBeCalled();
