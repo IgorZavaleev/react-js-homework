@@ -5,6 +5,7 @@
   "scripts": {
     "test": "jest",
     "calc": "ts-node ./src/calculator/index.ts",
+    "build": "webpack --mode production",
     "start": "webpack serve --mode development --open",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
