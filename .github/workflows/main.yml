@@ -1,0 +1,47 @@
+
+# Event for the workflow
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  check_project:
+    name: Check project
+    runs-on: ubuntu-latest
+    steps:
+      # Version 2 of the action
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Required to retrieve git history
+
+      - name: Install dependencies
+        run: npm i
+
+      # Run project test
+      - name: Tests
+        run: npm test
+
+      # Run build
+      - name: Build
+        run: npm run build
+
+      # Adds Chromatic as a step in the workflow
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        # Options required to the GitHub Chromatic Action
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+
+      - name: Add codesandbox link comment
+        uses: mshick/add-pr-comment@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          message: |
+            You can check this code at CodeSandbox with the link
+            https://githubbox.com/${{ github.repository }}/tree/${{ github.head_ref }}

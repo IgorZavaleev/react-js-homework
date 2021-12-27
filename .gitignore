@@ -3,3 +3,4 @@ node_modules
 .eslintcache
 build-storybook.log
 storybook-static
+dist
