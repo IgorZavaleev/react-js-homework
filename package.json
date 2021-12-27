@@ -5,6 +5,7 @@
   "scripts": {
     "test": "jest",
     "calc": "ts-node ./src/calculator/index.ts",
+    "build": "webpack --mode production",
     "start": "webpack serve --mode development --open",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
@@ -44,7 +45,7 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
-    "chromatic": "^5.10.2",
+    "chromatic": "^6.3.3",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-react-app": "^6.0.0",
