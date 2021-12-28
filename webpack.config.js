@@ -21,7 +21,12 @@ module.exports = {
       },
     ],
   },
-  resolve: { extensions: ["*", ".js", ".jsx", ".ts", ".tsx"] },
+  resolve: {
+    extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
+    alias: {
+      "@": "/src/",
+    },
+  },
   output: {
     path: path.resolve(__dirname, "dist/"),
     filename: "bundle.js",
@@ -31,9 +36,4 @@ module.exports = {
       template: "./src/index.html",
     }),
   ],
-  devServer: {
-    contentBase: path.join(__dirname, "dist/"),
-    port: 3000,
-    hotOnly: true,
-  },
 };

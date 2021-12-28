@@ -3,10 +3,8 @@
 exports[`Cell component check Cell renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-eudiny-Cell"
-    data-testid="1,1"
-  >
-    1,1
-  </div>
+    class="css-10ye2xw"
+    data-testid="cell_1_1_alive"
+  />
 </DocumentFragment>
 `;

@@ -9,67 +9,49 @@ exports[`Grid component check Grid renders correctly 1`] = `
       class="css-o2j9ze"
     >
       <div
-        class="css-ap6yp8-Cell"
-        data-testid="0,0"
-      >
-        0,0
-      </div>
+        class="css-1azqsv8"
+        data-testid="cell_0_0_dead"
+      />
       <div
-        class="css-eudiny-Cell"
-        data-testid="1,0"
-      >
-        1,0
-      </div>
+        class="css-10ye2xw"
+        data-testid="cell_1_0_alive"
+      />
       <div
-        class="css-ap6yp8-Cell"
-        data-testid="2,0"
-      >
-        2,0
-      </div>
+        class="css-1azqsv8"
+        data-testid="cell_2_0_dead"
+      />
     </div>
     <div
       class="css-o2j9ze"
     >
       <div
-        class="css-eudiny-Cell"
-        data-testid="0,1"
-      >
-        0,1
-      </div>
+        class="css-10ye2xw"
+        data-testid="cell_0_1_alive"
+      />
       <div
-        class="css-ap6yp8-Cell"
-        data-testid="1,1"
-      >
-        1,1
-      </div>
+        class="css-1azqsv8"
+        data-testid="cell_1_1_dead"
+      />
       <div
-        class="css-ap6yp8-Cell"
-        data-testid="2,1"
-      >
-        2,1
-      </div>
+        class="css-1azqsv8"
+        data-testid="cell_2_1_dead"
+      />
     </div>
     <div
       class="css-o2j9ze"
     >
       <div
-        class="css-ap6yp8-Cell"
-        data-testid="0,2"
-      >
-        0,2
-      </div>
+        class="css-1azqsv8"
+        data-testid="cell_0_2_dead"
+      />
       <div
-        class="css-ap6yp8-Cell"
-        data-testid="1,2"
-      >
-        1,2
-      </div>
+        class="css-1azqsv8"
+        data-testid="cell_1_2_dead"
+      />
       <div
-        class="css-eudiny-Cell"
-        data-testid="2,2"
-      >
-        2,2
-      </div>
+        class="css-10ye2xw"
+        data-testid="cell_2_2_alive"
+      />
     </div>
   </div>
 </DocumentFragment>

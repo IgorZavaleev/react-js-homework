@@ -1,8 +1,8 @@
 import React from "react";
 import { FC } from "react";
-import { FieldType } from "../../types/field";
-import { Cell } from "../Cell/Cell";
-import { onClickType } from "../../types/field";
+import { GameSize, FieldType } from "@/types/field";
+import { Cell } from "@/components/Cell/Cell";
+import { onClickType } from "@/types/field";
 import styled from "@emotion/styled";
 
 interface WrapperProps {
@@ -19,9 +19,13 @@ const GridWrapper = styled.div<WrapperProps>`
   flex-direction: column;
 `;
 
-export type GridProps = { field: FieldType; onClick: onClickType };
+export type GridProps = {
+  field: FieldType;
+  onClick: onClickType;
+  cellSize: GameSize;
+};
 
-export const Grid: FC<GridProps> = ({ field, onClick }) => (
+export const Grid: FC<GridProps> = ({ field, onClick, cellSize }) => (
   <GridWrapper>
     {field.map((row, y) => (
       <RowWrapper key={`${y}`}>
@@ -31,6 +35,7 @@ export const Grid: FC<GridProps> = ({ field, onClick }) => (
             coords={[x, y]}
             state={cell}
             onClick={onClick}
+            size={cellSize}
           />
         ))}
       </RowWrapper>
